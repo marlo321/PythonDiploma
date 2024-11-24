@@ -6,6 +6,10 @@ from ensemble import ensemble_predict_end_date
 app = FastAPI()
 
 
+@app.get("/")
+async def read_root():
+    return {"message": "Hello, World!"}
+
 @app.get("/ensemble_predict_end_date/")
 async def ensemble_predict_end_date(
         current_stock: int,
