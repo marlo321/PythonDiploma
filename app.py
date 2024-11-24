@@ -11,17 +11,17 @@ async def read_root():
     return {"message": "Hello, World!"}
 
 @app.get("/ensemble_predict_end_date/")
-async def ensemble_predict_end_date(
+def ensemble_predict_end_date(
         current_stock: int,
         bmw_model: str,
         car_part: str
 ):
-    return {"message": f"Checking stock for {bmw_model} - {car_part}. Current stock: {current_stock}"}
+    # return {"message": f"Checking stock for {bmw_model} - {car_part}. Current stock: {current_stock}"}
     if current_stock <= 0:
         raise HTTPException(status_code=400, detail="Current stock must be greater than zero.")
 
     try:
-        return await ensemble_predict_end_date(current_stock, bmw_model, car_part)
+        return ensemble_predict_end_date(current_stock, bmw_model, car_part)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
 
