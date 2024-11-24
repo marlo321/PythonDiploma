@@ -16,7 +16,7 @@ async def ensemble_predict_end_date(
         bmw_model: str,
         car_part: str
 ):
-    return await ({"message": f"Checking stock for {bmw_model} - {car_part}. Current stock: {current_stock}"})
+    return {"message": f"Checking stock for {bmw_model} - {car_part}. Current stock: {current_stock}"}
     if current_stock <= 0:
         raise HTTPException(status_code=400, detail="Current stock must be greater than zero.")
 
